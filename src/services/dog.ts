@@ -4,7 +4,7 @@ class DogService {
   private readonly baseUrl: string;
 
   constructor() {
-    this.baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
+    this.baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://dog.ceo";
   }
 
   async getAllDogs() {
