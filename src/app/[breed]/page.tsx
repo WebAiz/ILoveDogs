@@ -17,6 +17,7 @@ export default function Breed() {
 
   const getSubBreed = (subBreed: string) => {
     setIsLoading(true);
+    // @ts-ignore
     dogService.getSubBreedImageRandom(breed, subBreed).then((res) => {
       setSubDog(res.message);
       setIsLoading(false);
@@ -25,10 +26,12 @@ export default function Breed() {
   useEffect(() => {
     if (breed) {
       setIsLoading(true);
+      // @ts-ignore
       dogService.getDogsImageByBreed(breed).then((res) => {
         setDog(res.message);
         setIsLoading(false);
       });
+      // @ts-ignore
       dogService.getAllSubBreeds(breed).then((res) => {
         setSubBreedList(res.message);
         setIsLoading(false);
