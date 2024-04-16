@@ -4,41 +4,48 @@ class DogService {
   private readonly baseUrl: string;
 
   constructor() {
-    this.baseUrl = process.env.NEXT_PUBLIC_BASE_URL || ''
+    this.baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
   }
 
   async getAllDogs() {
-    const path = '/api/breeds/list/all'
+    const path = "/api/breeds/list/all";
     const response = await axiosInterceptorInstance.get(this.baseUrl + path); // Replace with your API endpoint
-  }
-
-  async getDogsByBreed(breed: string) {
-    const path = `/api/breed/${breed}/images`
-    const response = await axiosInterceptorInstance.get(this.baseUrl + path); // Replace with your API endpoint
+    return response.data;
   }
 
   async getAllSubBreeds(breed: string) {
-    const path = `/api/breed/${breed}/list`
+    const path = `/api/breed/${breed}/list`;
     const response = await axiosInterceptorInstance.get(this.baseUrl + path); // Replace with your API endpoint
+    return response.data;
   }
 
-  async getRandomDogImage(count?: number) {
-    const path = `/api/breeds/image/random/${count}`
+  async getDogsImageByBreed(breed: string) {
+    const path = `/api/breed/${breed}/images/random`;
     const response = await axiosInterceptorInstance.get(this.baseUrl + path); // Replace with your API endpoint
+    return response.data;
   }
 
-  async getBreedImageList(breed: string, subBreed: string) {
-    const path = `/api/breed/${breed}/${subBreed}/images`
+  async getRandomDogImage(count: number) {
+    const path = `/api/breeds/image/random/${count}`;
     const response = await axiosInterceptorInstance.get(this.baseUrl + path); // Replace with your API endpoint
+    return response.data;
   }
 
-  async getBreedImageRandom(breed: string, count?: number) {
-    const path = `/api/breed/${breed}/images/random/${count}`
+  async getSubBreedImageList(breed: string, subBreed: string) {
+    const path = `/api/breed/${breed}/${subBreed}/images`;
     const response = await axiosInterceptorInstance.get(this.baseUrl + path); // Replace with your API endpoint
+    return response.data;
   }
-  async getSubBreedImageRandom(breed: string, subBreed: string, count?: number) {
-    const path = `/api/breed/${breed}/${subBreed}/images/random/${count}`
+
+  async getBreedImageRandom(breed: string, count: number) {
+    const path = `/api/breed/${breed}/images/random/${count}`;
     const response = await axiosInterceptorInstance.get(this.baseUrl + path); // Replace with your API endpoint
+    return response.data;
+  }
+  async getSubBreedImageRandom(breed: string, subBreed: string) {
+    const path = `/api/breed/${breed}/${subBreed}/images/random`;
+    const response = await axiosInterceptorInstance.get(this.baseUrl + path); // Replace with your API endpoint
+    return response.data;
   }
 }
 

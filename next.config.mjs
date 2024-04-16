@@ -22,6 +22,16 @@ const withPWA = withPWADefault({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     // ... other options you like
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'images.dog.ceo',
+                port: '',
+                pathname: '/breeds/**',
+            },
+        ],
+    },
 };
 
 export default withPWA(nextConfig);
